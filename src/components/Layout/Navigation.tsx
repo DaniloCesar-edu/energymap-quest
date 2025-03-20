@@ -60,7 +60,7 @@ const Navigation: React.FC<NavigationProps> = ({
         </div>
         
         <div className="mt-auto pt-4 border-t border-border">
-          <div className="glass-panel p-4">
+          <div className="glass-panel p-4 dark:bg-black/20">
             <h3 className="text-sm font-semibold mb-2">Sobre o EnergyMap</h3>
             <p className="text-xs text-muted-foreground">Uma ferramenta para classificação energética dos territórios do Nordeste brasileiro.</p>
           </div>
