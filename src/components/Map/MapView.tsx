@@ -43,13 +43,12 @@ const MapView: React.FC = () => {
         <>
           <div 
             ref={mapContainerRef} 
-            className="h-full w-full relative bg-[#e8f4fa] overflow-hidden"
+            className="h-full w-full relative bg-[#e8f4fa] dark:bg-[#1a2935] overflow-hidden"
             style={{ 
-              backgroundImage: "url('https://uploads-ssl.webflow.com/5e8c373de83ca612f838e59f/5eb18ceeff822637f5e8666f_brazil_detail.png')",
+              backgroundImage: "url('https://i.imgur.com/a3pIPgR.png')",
               backgroundSize: `${900 + zoomLevel * 100}px`,
-              backgroundPosition: 'center top',
+              backgroundPosition: 'center center',
               backgroundRepeat: 'no-repeat',
-              height: '100%'
             }}
           >
             {/* Marcadores de território */}
@@ -91,7 +90,7 @@ const MapView: React.FC = () => {
                     />
                     {zoomLevel > 7 && (
                       <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-1 whitespace-nowrap">
-                        <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-white/80 shadow-sm">
+                        <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-white/80 dark:bg-gray-800/80 shadow-sm">
                           {territory.name}
                         </span>
                       </div>
@@ -105,20 +104,20 @@ const MapView: React.FC = () => {
             <div className="absolute bottom-4 right-4 flex flex-col space-y-2">
               <button 
                 onClick={handleZoomIn}
-                className="w-8 h-8 bg-white/90 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-colors"
+                className="w-8 h-8 bg-white/90 dark:bg-gray-800/90 rounded-full shadow-md flex items-center justify-center hover:bg-white dark:hover:bg-gray-700 transition-colors"
               >
                 <span className="text-lg font-bold">+</span>
               </button>
               <button 
                 onClick={handleZoomOut}
-                className="w-8 h-8 bg-white/90 rounded-full shadow-md flex items-center justify-center hover:bg-white transition-colors"
+                className="w-8 h-8 bg-white/90 dark:bg-gray-800/90 rounded-full shadow-md flex items-center justify-center hover:bg-white dark:hover:bg-gray-700 transition-colors"
               >
                 <span className="text-lg font-bold">-</span>
               </button>
             </div>
             
             {/* Legenda */}
-            <div className="absolute bottom-4 left-4 bg-white/90 shadow-md rounded-lg p-3">
+            <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-gray-800/90 shadow-md rounded-lg p-3">
               <h3 className="text-xs font-semibold mb-2">Necessidade Energética</h3>
               <div className="flex items-center space-x-2 text-xs">
                 <div className="w-3 h-3 rounded-full bg-energy-need-low"></div>
@@ -136,7 +135,7 @@ const MapView: React.FC = () => {
           </div>
           
           {/* Barra de informações */}
-          <div className="absolute left-4 right-4 top-4 bg-white/80 backdrop-blur-sm rounded-lg p-3 shadow-md">
+          <div className="absolute left-4 right-4 top-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-lg p-3 shadow-md">
             <p className="text-sm text-center">
               Mapa energético do Nordeste brasileiro. Clique em um ponto para ver detalhes.
             </p>

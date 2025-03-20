@@ -38,7 +38,7 @@ const Index = () => {
         <main className={`flex-grow overflow-hidden transition-all duration-300 md:pl-64 ${(isMobile && isMenuOpen) ? 'opacity-30' : 'opacity-100'}`}>
           <div className="relative h-full p-4">
             {activeTab === 'map' && (
-              <div className="animate-blur-in absolute inset-0 p-4">
+              <div className="animate-blur-in absolute inset-0 p-4 flex-1" style={{ height: "calc(100vh - 5rem)" }}>
                 <MapView />
               </div>
             )}
