@@ -35,28 +35,28 @@ const Index = () => {
           onChangeTab={handleChangeTab} 
         />
         
-        <main className={`flex-grow overflow-hidden transition-all duration-300 ${!isMobile || !isMenuOpen ? 'translate-x-0' : 'translate-x-64'}`}>
-          <div className="relative h-full">
+        <main className={`flex-grow overflow-hidden transition-all duration-300 md:pl-64 ${(isMobile && isMenuOpen) ? 'opacity-30' : 'opacity-100'}`}>
+          <div className="relative h-full p-4">
             {activeTab === 'map' && (
-              <div className="animate-blur-in absolute inset-0">
+              <div className="animate-blur-in absolute inset-0 p-4">
                 <MapView />
               </div>
             )}
             
             {activeTab === 'metrics' && (
-              <div className="animate-scale-in absolute inset-0">
+              <div className="animate-scale-in absolute inset-0 p-4">
                 <EnergyMetricsOverview />
               </div>
             )}
             
             {activeTab === 'data' && (
-              <div className="animate-slide-up absolute inset-0">
+              <div className="animate-slide-up absolute inset-0 p-4">
                 <DataSubmissionForm />
               </div>
             )}
             
             {activeTab === 'guide' && (
-              <div className="animate-slide-down absolute inset-0">
+              <div className="animate-slide-down absolute inset-0 p-4">
                 <EducationalGuide />
               </div>
             )}

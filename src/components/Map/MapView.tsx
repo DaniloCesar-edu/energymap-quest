@@ -6,7 +6,6 @@ import TerritoryDetails from './TerritoryDetails';
 import { cn } from '@/lib/utils';
 import { classifyTerritory, getEnergyNeedColor } from '@/utils/energyClassification';
 
-// Mapa simulado para fins de demonstração
 const MapView: React.FC = () => {
   const [selectedTerritory, setSelectedTerritory] = useState<Territory | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -32,7 +31,7 @@ const MapView: React.FC = () => {
   };
 
   return (
-    <div className="relative h-full">
+    <div className="relative h-full w-full rounded-xl overflow-hidden border border-border">
       {isLoading ? (
         <div className="absolute inset-0 flex items-center justify-center bg-muted/20 backdrop-blur-sm rounded-xl">
           <div className="flex flex-col items-center">
@@ -44,12 +43,13 @@ const MapView: React.FC = () => {
         <>
           <div 
             ref={mapContainerRef} 
-            className="map-container relative bg-[#e8f4fa] overflow-hidden"
+            className="h-full w-full relative bg-[#e8f4fa] overflow-hidden"
             style={{ 
               backgroundImage: "url('https://uploads-ssl.webflow.com/5e8c373de83ca612f838e59f/5eb18ceeff822637f5e8666f_brazil_detail.png')",
               backgroundSize: `${900 + zoomLevel * 100}px`,
               backgroundPosition: 'center top',
-              backgroundRepeat: 'no-repeat'
+              backgroundRepeat: 'no-repeat',
+              height: '100%'
             }}
           >
             {/* Marcadores de território */}
