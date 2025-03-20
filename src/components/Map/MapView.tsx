@@ -1,6 +1,6 @@
 
 import React, { useEffect, useRef, useState } from 'react';
-import { Spinner } from 'lucide-react';
+import { Loader } from 'lucide-react';
 import mockTerritories, { Territory } from '@/data/mockTerritories';
 import TerritoryDetails from './TerritoryDetails';
 import { cn } from '@/lib/utils';
@@ -36,7 +36,7 @@ const MapView: React.FC = () => {
       {isLoading ? (
         <div className="absolute inset-0 flex items-center justify-center bg-muted/20 backdrop-blur-sm rounded-xl">
           <div className="flex flex-col items-center">
-            <Spinner className="h-8 w-8 animate-spin text-primary" />
+            <Loader className="h-8 w-8 animate-spin text-primary" />
             <p className="mt-2 text-sm text-muted-foreground">Carregando mapa...</p>
           </div>
         </div>

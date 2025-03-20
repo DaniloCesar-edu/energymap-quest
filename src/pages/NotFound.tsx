@@ -2,7 +2,7 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { MapOff } from "lucide-react";
+import { Map } from "lucide-react";
 
 const NotFound = () => {
   const location = useLocation();
@@ -18,7 +18,7 @@ const NotFound = () => {
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-background to-muted/30">
       <div className="glass-panel p-8 max-w-md text-center animate-scale-in">
         <div className="glass-icon mx-auto mb-6">
-          <MapOff className="h-6 w-6" />
+          <Map className="h-6 w-6" />
         </div>
         <h1 className="text-4xl font-bold mb-4">404</h1>
         <p className="text-xl text-muted-foreground mb-6">Território não encontrado</p>
