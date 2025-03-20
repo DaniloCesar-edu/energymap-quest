@@ -1,11 +1,67 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+
+import React, { useState } from 'react';
+import Header from '@/components/Layout/Header';
+import Navigation from '@/components/Layout/Navigation';
+import MapView from '@/components/Map/MapView';
+import EnergyMetricsOverview from '@/components/EnergyMetrics/EnergyMetricsOverview';
+import DataSubmissionForm from '@/components/DataSubmission/DataSubmissionForm';
+import EducationalGuide from '@/components/DataSubmission/EducationalGuide';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
+  const [activeTab, setActiveTab] = useState('map');
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
+  
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+  
+  const handleChangeTab = (tab: string) => {
+    setActiveTab(tab);
+    if (isMobile) {
+      setIsMenuOpen(false);
+    }
+  };
+  
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">Welcome to Your Blank App</h1>
-        <p className="text-xl text-gray-600">Start building your amazing project here!</p>
+    <div className="min-h-screen bg-background">
+      <Header isMenuOpen={isMenuOpen} toggleMenu={toggleMenu} />
+      
+      <div className="pt-16 flex h-[calc(100vh-4rem)]">
+        <Navigation 
+          isMenuOpen={isMenuOpen} 
+          activeTab={activeTab} 
+          onChangeTab={handleChangeTab} 
+        />
+        
+        <main className={`flex-grow overflow-hidden transition-all duration-300 ${!isMobile || !isMenuOpen ? 'translate-x-0' : 'translate-x-64'}`}>
+          <div className="relative h-full">
+            {activeTab === 'map' && (
+              <div className="animate-blur-in absolute inset-0">
+                <MapView />
+              </div>
+            )}
+            
+            {activeTab === 'metrics' && (
+              <div className="animate-scale-in absolute inset-0">
+                <EnergyMetricsOverview />
+              </div>
+            )}
+            
+            {activeTab === 'data' && (
+              <div className="animate-slide-up absolute inset-0">
+                <DataSubmissionForm />
+              </div>
+            )}
+            
+            {activeTab === 'guide' && (
+              <div className="animate-slide-down absolute inset-0">
+                <EducationalGuide />
+              </div>
+            )}
+          </div>
+        </main>
       </div>
     </div>
   );

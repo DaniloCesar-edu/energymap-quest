@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,28 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				energy: {
+					need: {
+						low: '#E5F6FD',
+						medium: '#FFE3BA',
+						high: '#FFDAD6'
+					},
+					solar: {
+						low: '#F5F5F5',
+						medium: '#FFE3BA',
+						high: '#FDDA4E'
+					},
+					wind: {
+						low: '#F5F5F5',
+						medium: '#BDEFEA',
+						high: '#3BC9DB'
+					},
+					hydro: {
+						low: '#F5F5F5',
+						medium: '#CDE4FF',
+						high: '#339AF0'
+					}
 				}
 			},
 			borderRadius: {
@@ -84,11 +107,50 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'fade-out': {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' }
+				},
+				'slide-up': {
+					'0%': { transform: 'translateY(10px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'slide-down': {
+					'0%': { transform: 'translateY(-10px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'scale-in': {
+					'0%': { transform: 'scale(0.95)', opacity: '0' },
+					'100%': { transform: 'scale(1)', opacity: '1' }
+				},
+				'blur-in': {
+					'0%': { filter: 'blur(8px)', opacity: '0' },
+					'100%': { filter: 'blur(0)', opacity: '1' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.4s ease-out',
+				'fade-out': 'fade-out 0.4s ease-out',
+				'slide-up': 'slide-up 0.4s ease-out',
+				'slide-down': 'slide-down 0.4s ease-out',
+				'scale-in': 'scale-in 0.3s ease-out',
+				'blur-in': 'blur-in 0.5s ease-out'
+			},
+			boxShadow: {
+				'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.06)',
+				'glass-hover': '0 8px 32px 0 rgba(31, 38, 135, 0.1)',
+				'subtle': '0 2px 10px rgba(0, 0, 0, 0.05)',
+				'elevation': '0 10px 20px rgba(0, 0, 0, 0.08)'
+			},
+			backgroundImage: {
+				'grid-pattern': 'linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px)'
 			}
 		}
 	},
