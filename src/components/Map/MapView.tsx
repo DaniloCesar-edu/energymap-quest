@@ -43,14 +43,18 @@ const MapView: React.FC = () => {
         <>
           <div 
             ref={mapContainerRef} 
-            className="h-full w-full relative bg-[#e8f4fa] dark:bg-[#1a2935] overflow-hidden"
-            style={{ 
-              backgroundImage: "url('https://i.imgur.com/a3pIPgR.png')",
-              backgroundSize: `${900 + zoomLevel * 100}px`,
-              backgroundPosition: 'center center',
-              backgroundRepeat: 'no-repeat',
-            }}
+            className="h-full w-full relative bg-white dark:bg-gray-900 overflow-hidden"
           >
+            {/* Imagem estática do mapa do nordeste */}
+            <div 
+              className="absolute inset-0 bg-contain bg-center bg-no-repeat"
+              style={{
+                backgroundImage: "url('/lovable-uploads/128202b3-ebaa-4990-8efe-3733c4c86389.png')",
+                opacity: 0.9,
+                backgroundSize: `${65 + zoomLevel * 5}%`,
+              }}
+            />
+            
             {/* Marcadores de território */}
             <div className="absolute inset-0">
               {mockTerritories.map(territory => {
